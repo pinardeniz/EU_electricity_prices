@@ -1,4 +1,9 @@
-# setwd("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/GLOBAL DATA/RESULTS/eu22variables_regression_kink/endogenous_regression_kink")
+# endogenous regression kink is applied for each sheet of the 4 excel files:
+# DATA_results_endo_kinkIMF.xlsx
+# DATA_results_endo_kinkUN.xlsx
+# DATA_results_endo_kinkWB.xlsx
+# DATA_results_endo_kinkWTO.xlsx
+
 
 # Load in Data
 library(readxl)

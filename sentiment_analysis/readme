@@ -1,1 +1,7 @@
+the path for the wordcloud.R should be updated according to the relevant organization:
+"UN/ALL"
+"WB/ALL"
+"WTO/ALL"
+"IMF/ALL"
 
+however, these data files .txt are in .rar. Hence, they need to be extracted first.

@@ -1,6 +1,61 @@
-data extraction is given 
-sentiment analysis using finbert as transformers is given in finbert.py python code.
-word cloud visualization is given in wordcloud.R R code.
+First we need to extract data from the relevant webpages. To do so, we get the relevant links.
+Below is a step-by-step explanation we followed to get the clean links from World Bank to extract data from each using webscraping:
+
+WORLD BANK
+Past Presidents' Speeches
+https://www.worldbank.org/en/archive/documentlist?src=cq55&sq=colti:(Presidential+Speech)+OR+src_cit:(Presidential+Speech)
+Download XLS file on the upper-right
+
+The data for presidential speeches from 1946-2024 in the
+
+WorldBank_hyperlinks.xls file
+
+These xls files provide the list and the hyperlinks to reach the relevant website.
+But webscraping is needed to extract the texts from the relevant additional hyperlinks in these websites.
+Hence, the hyperlinks in the xls file are not the downloadable texts but a certain route should be found to reach the correct place inside the relevant page.
+Moreover, xls file includes the hyperlink embedded in the titles of the speeches, in the first column.
+So, I use a basic code in VBA to extract these initial hyperlinks from their embedded column to the next column:
+
+Open up a new workbook.
+Get into VBA (Press Alt+F11)
+Insert a new module (Insert > Module)
+Copy and Paste the Excel user defined function below
+Press F5 and click “Run”
+Get out of VBA (Press Alt+Q)
+
+Sub ExtractHL()
+Dim HL As Hyperlink
+For Each HL In ActiveSheet.Hyperlinks
+HL.Range.Offset(0, 1).Value = HL.Address
+Next
+End Sub
+
+------------
+In the xls (keep everything in the text form from format cells)
+
+1)
+replace
+https://documents.worldbank.org/en/publication/documents-reports/documentdetail/
+with
+https://documents1.worldbank.org/curated/en/
+
+2)
+add
+text/
+right before the last separation with /
+
+3)
+add
+.txt
+at the end of the link
+
+links_revised page in the WorldBank_hyperlinks.xls file -> include the links to extract data from WB for the presidential speeches
+final data : WBspeech_links.txt to download the content within each link
+
+coding for scraping, sentiment analysis and creating word cloud:
+1) data extraction for World Bank is given webscraping.R R code
+2) sentiment analysis using finbert as transformers is given in finbert.py python code.
+3) word cloud visualization is given in wordcloud.R R code.
 
 the path for the wordcloud.R should be updated according to the relevant organization:
 "UN/ALL"

@@ -9,8 +9,9 @@ library(tm)
 install.packages("gtools")
 library(gtools)
 
+#there are data files for all 4 organizations, hence the path should change for each: "UN/ALL", "WB/ALL", "WTO/ALL", "IMF/ALL"
 
-files <- list.files(path = "WTO", full.names = TRUE)
+files <- list.files(path = "WTO/ALL", full.names = TRUE)
 
 sorted_files <- mixedsort(files)  # Sort the files naturally
 

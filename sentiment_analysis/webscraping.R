@@ -1,4 +1,5 @@
-WBspeech_links <- read.csv("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/METHODOLOGY/WBspeech_links.txt", sep="")
+# below code is an example for World Bank
+WBspeech_links <- read.csv("WBspeech_links.txt", sep="")
 
 links <- WBspeech_links$LINKS
 c <- c(1:1088)
@@ -9,7 +10,7 @@ for(i in seq_along(links)){
 }
 
 
-WBspeech_links <- read.table("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/WB_speech_texts/REVISED/links.txt", sep="")
+WBspeech_links <- read.table("links.txt", sep="")
 
 link <- WBspeech_links$V1
 

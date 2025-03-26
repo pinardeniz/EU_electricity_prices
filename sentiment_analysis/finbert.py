@@ -16,7 +16,7 @@ tokenizer = BertTokenizer.from_pretrained('yiyanghkust/finbert-tone')
 nlp = pipeline("sentiment-analysis", model=finbert, tokenizer=tokenizer, device=0)
 
 # Define the main folder containing subfolders
-main_folder_path = r"...\IMF"
+main_folder_path = r"IMF/ALL"
 
 # Initialize a DataFrame to store results
 results = []

@@ -6,16 +6,12 @@ library(NLP)
 library(tm)
 
 
-# creating corpus
-# UNstatements <- Corpus(DirSource("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/WTO/2024", encoding = "UTF-8"))
-
-
 install.packages("gtools")
 library(gtools)
 
 
-files <- list.files(path = "C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/WTO/ALL", full.names = TRUE)
-# files <- list.files(path = "C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/WB_speech_texts/REVISED/revised", full.names = TRUE)
+files <- list.files(path = "WTO", full.names = TRUE)
+
 sorted_files <- mixedsort(files)  # Sort the files naturally
 
 texts <- Corpus(URISource(sorted_files), readerControl = list(reader = readPlain, language = "en", encoding = "UTF-8"))

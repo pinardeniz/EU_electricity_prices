@@ -12,7 +12,7 @@ nltk.download('punkt')
 finbert = BertForSequenceClassification.from_pretrained('yiyanghkust/finbert-tone', num_labels=3)
 tokenizer = BertTokenizer.from_pretrained('yiyanghkust/finbert-tone')
 
-# ✅ Use GPU if available (If no GPU, it runs on CPU)
+# Use GPU if available (If no GPU, it runs on CPU)
 nlp = pipeline("sentiment-analysis", model=finbert, tokenizer=tokenizer, device=0)
 
 # Define the main folder containing subfolders
@@ -40,14 +40,14 @@ def split_and_filter_sentences(text, min_words=5, max_words=150, max_tokens=512)
         # Tokenize sentence FIRST before checking word count
         tokens = tokenizer.tokenize(s)
 
-        # 🚨 If sentence exceeds max tokens, truncate it immediately
+        # If sentence exceeds max tokens, truncate it immediately
         if len(tokens) > max_tokens:
             tokens = tokens[:max_tokens]  # Keep only the first 512 tokens
             s = tokenizer.convert_tokens_to_string(tokens)  # Convert back to string
 
         word_count = len(s.split())
 
-        # ⚠️ Skip very short sentences (≤5 words) and extremely long ones (>150 words)
+        # Skip very short sentences (≤5 words) and extremely long ones (>150 words)
         if word_count < min_words or word_count > max_words:
             continue  
 
@@ -61,7 +61,7 @@ for subfolder in os.listdir(main_folder_path):
 
     # Ensure it's a folder, not a file
     if os.path.isdir(subfolder_path):  
-        print(f"\n📂 Processing folder: {subfolder}")
+        print(f"\n Processing folder: {subfolder}")
 
         # Process each text file in the subfolder
         for file_name in os.listdir(subfolder_path):
@@ -82,7 +82,7 @@ for subfolder in os.listdir(main_folder_path):
                 total_positive = 0
                 total_sentences = len(sentences)
 
-                # ✅ Process sentences in batches (FASTER)
+                # Process sentences in batches (FASTER)
                 if total_sentences > 0:
                     batch_results = nlp(sentences)
 
@@ -115,4 +115,4 @@ df_results = pd.DataFrame(results, columns=["FolderName", "FileName", "AvgNegati
 output_csv = os.path.join(main_folder_path, "sentiment_all_folders.csv")
 df_results.to_csv(output_csv, index=False, encoding="utf-8")
 
-print(f"\n✅ Processing completed. Results saved to {output_csv}")
+print(f"\n Processing completed. Results saved to {output_csv}")

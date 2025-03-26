@@ -1,6 +1,13 @@
+# hansen regression kink is applied for each sheet of the 4 excel files:
+# DATA_results_kinkIMF.xlsx
+# DATA_results_kinkUN.xlsx
+# DATA_results_kinkWB.xlsx
+# DATA_results_kinkWTO.xlsx
+
+
 # Load in Data
 library(readxl)
-dataR <- read_excel("eu22variables_regression_kink/DATA_results_kinkUN.xlsx", sheet = "SWE", range = "A25:G118")
+dataR <- read_excel("DATA_results_kinkUN.xlsx", sheet = "SWE", range = "A25:G118")
 # FOR FIN : range = "A26:G118"
 # FOR HUN: range = "A35:G118"
 # FOR ITA: range = "A47:G118"

@@ -1,10 +1,8 @@
 # Load in Data
 library(readxl)
-dataR <- read_excel("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/GLOBAL DATA/RESULTS/eu22variables_regression_kink/DATA.xlsx", sheet = "SWE", range = "A1:G118") # FOR FIN : range = "A26:G118", FOR HUN: range = "A35:G118", FOR ITA: range = "A47:G118", FOR LUX: range = "A38:G118", FOR SVN: range = "A14:G118"
+
+dataR <- read.delim("el.txt")
 dataR <- data.frame(dataR)
-
-dataR <- read.delim("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/GLOBAL DATA/RESULTS/el.txt")
-
 
 cormat <- round(cor(dataR),2)
 head(cormat)

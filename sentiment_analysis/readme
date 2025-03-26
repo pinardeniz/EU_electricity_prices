@@ -1,3 +1,7 @@
+data extraction is given 
+sentiment analysis using finbert as transformers is given in finbert.py python code.
+word cloud visualization is given in wordcloud.R R code.
+
 the path for the wordcloud.R should be updated according to the relevant organization:
 "UN/ALL"
 "WB/ALL"

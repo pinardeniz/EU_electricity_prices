@@ -14,7 +14,7 @@ For WTO: DATA_results_kinkWTO.xlsx
 
 The analysis is applied for each country within each Excel file.
 Hence, the country code in the "sheet" option changes for the country-based analysis.
-For instance, in the function below, we use data for Sweden (SWE) within the DATA_results_kinkUN.xlsx data file.
+For instance, in the function below, we use data for Sweden (SWE) within the DATA_results_kinkUN.xlsx data file:
 dataR <- read_excel("DATA_results_kinkUN.xlsx", sheet = "SWE", range = "A25:G118")
 
 ******
@@ -35,5 +35,5 @@ For WTO: DATA_results_endo_kinkWTO.xlsx
 
 The analysis is applied for each country within each Excel file.
 Hence, the country code in the "sheet" option changes for the country-based analysis.
-For instance, in the function below, we use data for Sweden (SWE) within the DATA_results_kinkUN.xlsx data file.
-dataR <- read_excel("DATA_results_kinkUN.xlsx", sheet = "SWE", range = "A25:G118")
+For instance, in the function below, we use data for Sweden (SWE) within the DATA_results_endo_kinkUN.xlsx data file:
+dataR <- read_excel("DATA_results_endo_kinkUN.xlsx", sheet = "SWE", range = "A25:J118")

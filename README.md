@@ -1,4 +1,4 @@
-This github file provides the supplementary data to the paper "Asymmetric effect of the global sentiments on EU electricity prices".
+This github file provides the supplementary data to the paper "Asymmetric effect of the global sentiments on EU electricity prices" by Pinar Deniz and Thanasis Stengos.
 
 There are two subfolders:
 1) Replication of data construction: This folder includes webscraping, sentiment analysis and visualization for word cloud in R and Python.

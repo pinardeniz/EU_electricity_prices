@@ -1,1 +1,21 @@
+Using hansen_kink_regression.R file, we obtain:
 
+Table 2: Regression Kink Results: IMF common tones
+Table C.1: Regression Kink Results: WTO common tones
+Table C.2: Regression Kink Results: UN common tones
+Table C.3: Regression Kink Results: WB common tones
+
+
+gammas
+dx
+
+******
+
+Using endogenous_kink_regression.R file, we obtain:
+
+Table 3: Endogenous Regression Kink Results: IMF common tones
+Table C.4: Endogenous Regression Kink Results: WTO common tones
+Table C.5: Endogenous Regression Kink Results: UN common tones
+Table C.6: Endogenous Regression Kink Results: WB common tones
+gammas
+dx

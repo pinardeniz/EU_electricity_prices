@@ -20,7 +20,7 @@ tokenizer = BertTokenizer.from_pretrained('yiyanghkust/finbert-tone')
 nlp = pipeline("sentiment-analysis", model=finbert, tokenizer=tokenizer, device=0)
 
 # Define the folder containing text files
-folder_path = r"C:\Users\user\Google Drive\KONFERANS 2023-2024 CALISMALAR\GUELPH_RESEARCH2023\ENERGY PRICES\REGIONAL\IMF and UN_common\UN\UNtexts9"
+folder_path = r"THE PATH TO BE ADDED HERE"
 
 # Initialize a DataFrame to store results
 results = []

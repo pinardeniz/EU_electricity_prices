@@ -1,53 +1,7 @@
-WBspeech_links <- read.csv("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/METHODOLOGY/WBspeech_links.txt", sep="")
-
-links <- WBspeech_links$LINKS
-c <- c(1:1088)
-c <- paste0(c,".txt")
-
-for(i in seq_along(links)){
-  download.file(links[i], c[i], mode="wb")
-}
-
-
-WBspeech_links <- read.table("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/WB_speech_texts/REVISED/links.txt", sep="")
-
-link <- WBspeech_links$V1
-
-link <- as.vector(link)
-
 install.packages("Rtools")  # If you haven't already
-install.packages("chromote")
-install.packages("rvest")
-install.packages("dplyr")
-install.packages("purrr")
 
-library(chromote)
-library(rvest)
-library(dplyr)
-library(purrr) 
-
-
-# Initialize Chromote session
-b <- ChromoteSession$new()
-
-# Navigate to the first page
-b$Page$navigate("https://documents.worldbank.org/en/publication/documents-reports/documentdetail/903341467995785892/remarks-by-world-bank-group-president-jim-yong-kim-at-the-foreign-correspondents-club-of-japan")
-Sys.sleep(5)  # Wait for the first page to load
-
-page_source <- b$Runtime$evaluate('document.documentElement.outerHTML')$result$value
-
-txt_link <- read_html(page_source) %>%
-  html_nodes("a.ng-tns-c1-0") %>%  # Select only the <a> tags with class 'ng-tns-c1-0'
-  .[grepl("TXT\\*", html_text(.))] %>%  # Filter links where text contains 'TXT*'
-  html_attr("href")  # Extract the 'href' attribute
-
-
-# Print the extracted TXT* link
-print(txt_link)
 
 ####### for loop now ############
-
-
 
 # Load necessary libraries
 install.packages("chromote")
@@ -61,7 +15,7 @@ library(dplyr)
 library(purrr)
 
 # Read the links from your text file
-WBspeech_links <- read.table("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/REGIONAL/WB_speech_texts/REVISED/links.txt", sep="")
+WBspeech_links <- read.table("WBspeech_links.txt", sep="")
 
 # Convert the link column to a vector
 link <- as.vector(WBspeech_links$V1)

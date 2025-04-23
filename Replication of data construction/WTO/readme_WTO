@@ -1,1 +1,12 @@
-https://www.wto.org/english/news_e/news_e.htm#
+1) WEBSCRAPING
+For the WTO news and press releases, the database is: https://www.wto.org/english/news_e/news_e.htm
+To scrape the link for each webpage, we used WTO_scraping.R
+
+2) SENTIMENT ANALYSIS
+After the content is downloaded to each text file, the sentiments using finBERT algorithm is applied using Python file: finBERT_withfolders.py
+
+
+3) WORD CLOUD VISUALIZATION
+Using the content of UN statements, wordcloud.R file is used to visualize word cloud.
+
+

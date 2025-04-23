@@ -52,6 +52,8 @@ at the end of the link
 links_revised page in the WorldBank_hyperlinks.xls file -> include the links to extract data from WB for the presidential speeches
 final data : WBspeech_links.txt to download the content within each link
 
+To scrape the link for each webpage, we used WB_scraping.R
+
 2) SENTIMENT ANALYSIS
 After the content is downloaded to each text file, the sentiments using finBERT algorithm is applied using Python file: finBERT.py
 

@@ -124,7 +124,7 @@ link <- UNstatement_links$LINKS
 
 
 #############################################################################################################
-# I USED CHATGPT TO WRITE A FUNCTION CALLED "download_content"
+# I USED FUNCTION "download_content"
 # to download and save visible content from a single URL
 
 library(rvest)

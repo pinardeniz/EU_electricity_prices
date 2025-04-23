@@ -1,1 +1,12 @@
-https://www.imf.org/en/news/searchnews
+1) WEBSCRAPING
+For the IMF speeches, the database is: https://www.imf.org/en/news/searchnews
+To scrape the link for each webpage, we used 
+(to extract content of each page, "download_content" function is used)
+
+2) SENTIMENT ANALYSIS
+After the content is downloaded to each text file, the sentiments using finBERT algorithm is applied using Python file: finBERT.py
+
+3) WORD CLOUD VISUALIZATION
+Using the content of UN statements, wordcloud.R file is used to visualize word cloud. 
+
+

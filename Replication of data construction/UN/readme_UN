@@ -2,4 +2,5 @@ For the UN statements, the database is: https://www.un.org/sg/en/latest/sg/state
 To scrape the link for each webpage, we used UN_webscrape.R.
 (to extract content of each page, "download_content" function is used)
 
- 
+After the content is downloaded to each text file, the sentiments using finBERT algorithm is applied using Python file: finBERT.py
+

@@ -1,6 +1,6 @@
 1) WEBSCRAPING
 For the IMF speeches, the database is: https://www.imf.org/en/news/searchnews
-To scrape the link for each webpage, we used 
+To scrape the link for each webpage, we used IMF_scraping.R
 (to extract content of each page, "download_content" function is used)
 
 2) SENTIMENT ANALYSIS

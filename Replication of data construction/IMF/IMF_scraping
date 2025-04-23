@@ -1,0 +1,120 @@
+# Load required libraries
+library(chromote)
+library(rvest)
+
+# Initialize Chromote session
+b <- ChromoteSession$new()
+
+# Initialize variables
+all_links <- c()  # To store all the links
+num_pages <- 100   # Number of pages to scrape
+
+# Navigate to the first page
+b$Page$navigate("https://www.imf.org/en/news/searchnews")
+
+# Wait for the first page to load
+#Sys.sleep(5)  # Adjust the time if needed
+
+# Loop through the first 10 pages
+for (i in 1:num_pages) {
+  
+  # Fetch the HTML content of the current page
+  page_html <- b$Runtime$evaluate('document.documentElement.outerHTML')$result$value
+  
+  # Parse the HTML and extract links for the current page
+  html_content <- read_html(page_html)
+  hrefs <- html_content %>%
+    html_elements("a.CoveoResultLink") %>%
+    html_attr("href")
+  
+  # Store the links
+  all_links <- c(all_links, hrefs)
+  
+  # Print the links for the current page
+  cat("Links from page", i, ":\n")
+  print(hrefs)
+  
+  # Click the "Right Arrow" to go to the next page, except for the last page
+  if (i < num_pages) {
+    b$Runtime$evaluate("
+      var element = document.querySelector('[aria-label=\"Right Arrow\"]').parentElement;
+      if (element) {
+        var rect = element.getBoundingClientRect();
+        var mouseEvent = new MouseEvent('click', {
+          clientX: rect.left + rect.width / 2,
+          clientY: rect.top + rect.height / 2,
+          bubbles: true,
+          cancelable: true,
+          view: window
+        });
+        element.dispatchEvent(mouseEvent);
+      }
+    ")
+    
+    # Wait for the next page to load
+    Sys.sleep(5)  # Adjust the time if necessary
+  }
+}
+
+# Remove duplicates, if any
+unique_links <- unique(all_links)
+
+# Print the final list of unique links
+cat("Total unique links from the first 10 pages:\n")
+print(unique_links)
+
+write.table(unique_links, file="IMF_searchsite_links.xls")
+
+
+
+#######################################################################################
+#  NOW LET'S DOWNLOAD the first 14 LINKS as an example
+IMFsearch_links <- read.delim("C:/Users/user/Google Drive/KONFERANS 2023-2024 CALISMALAR/GUELPH_RESEARCH2023/ENERGY PRICES/METHODOLOGY/IMFsearch_links.txt")
+link <- IMFsearch_links$LINKS
+
+#############################################################################################################
+# Load required library
+install.packages("chromote")
+library(chromote)
+library(rvest)
+
+# Initialize Chromote session
+b <- ChromoteSession$new()
+
+download_clean_text <- function(link, session, file_name) {
+  # Step 1: Navigate to the page
+  session$Page$navigate(link)
+  
+  # Step 2: Wait for the page to fully load
+  Sys.sleep(5)  # Adjust sleep time if the page loads slower
+  
+  # Step 3: Fetch the HTML content of the page
+  page_html <- session$Runtime$evaluate('document.documentElement.outerHTML')$result$value
+  
+  # Step 4: Parse the HTML and extract clean visible text (remove HTML tags)
+  html_content <- read_html(page_html)
+  
+  # Extract the main content (adjust selector to target specific part of the page)
+  # Here, I use "body" to grab the whole visible content, you may refine it for precision.
+  page_text <- html_content %>%
+    html_elements("body") %>%  # This can be changed to a more specific selector if needed
+    html_text(trim = TRUE)     # Extract visible text and trim extra spaces
+  
+  # Step 5: Clean up text by removing excess white space
+  clean_text <- gsub("\\s+", " ", page_text)  # Remove multiple spaces and line breaks
+  
+  # Step 6: Save the clean text to a .txt file
+  writeLines(clean_text, file_name)
+}
+
+# Loop through the list of links and download the content as .txt files
+for (i in seq_along(link)) {
+  # Define the file name for each .txt file (e.g., page1.txt, page2.txt, etc.)
+  file_name <- paste0(i, ".txt")
+  
+  # Download the page content and save it
+  download_clean_text(link[i], b, file_name)
+  
+  # Print a status message to track progress
+  cat("Downloaded:", link[i], "as", file_name, "\n")
+}

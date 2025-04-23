@@ -2,4 +2,4 @@ This github file provides the supplementary data to the paper "Asymmetric effect
 
 There are two subfolders:
 1) Replication of data construction: This folder includes R codes for webscraping and word cloud and Python codes for sentiment analysis.
-2) Replication of empirical findings: This folder includes R codes for regression kink and endogeneity controlled regression kink analysis and Eviews workfile for SVAR analysis.
+2) Replication of empirical findings: This folder includes R codes for regression kink and endogeneity controlled regression kink analysis.

@@ -1,3 +1,11 @@
+We have 5 variables:
+EL is electricity prices
+IP is industrial production
+RE is renewable energy production share
+NG is global oil prices
+SEN is global sentiments
+
+
 Using hansen_kink_regression.R file, we obtain:
 
 Table 2: Regression Kink Results: IMF common tones

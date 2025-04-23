@@ -4,6 +4,7 @@ To scrape the link for each webpage, we used IMF_scraping.R
 
 2) SENTIMENT ANALYSIS
 After the content is downloaded to each text file, the sentiments using finBERT algorithm is applied using Python file: finBERT.py
+After getting the sentiment scores, we filtered to get only "Speeches".
 
 3) WORD CLOUD VISUALIZATION
 Using the content of UN statements, wordcloud.R file is used to visualize word cloud. 

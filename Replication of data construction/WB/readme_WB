@@ -1,4 +1,4 @@
-First we need to extract data from the relevant webpages. To do so, we get the relevant links.
+1) First we need to extract data from the relevant webpages. To do so, we get the relevant links.
 Below is a step-by-step explanation we followed to get the clean links from World Bank to extract data from each using webscraping:
 
 WORLD BANK
@@ -33,18 +33,18 @@ End Sub
 ------------
 In the xls (keep everything in the text form from format cells)
 
-1)
+1.1)
 replace
 https://documents.worldbank.org/en/publication/documents-reports/documentdetail/
 with
 https://documents1.worldbank.org/curated/en/
 
-2)
+1.2)
 add
 text/
 right before the last separation with /
 
-3)
+1.3)
 add
 .txt
 at the end of the link
@@ -52,13 +52,8 @@ at the end of the link
 links_revised page in the WorldBank_hyperlinks.xls file -> include the links to extract data from WB for the presidential speeches
 final data : WBspeech_links.txt to download the content within each link
 
-coding for scraping, sentiment analysis and creating word cloud:
-1) data extraction for World Bank is given webscraping.R R code
-2) sentiment analysis using finbert as transformers is given in finbert.py python code.
-3) word cloud visualization is given in wordcloud.R R code.
+2) SENTIMENT ANALYSIS
+After the content is downloaded to each text file, the sentiments using finBERT algorithm is applied using Python file: finBERT.py
 
-the path for the wordcloud.R should be updated according to the relevant organization:
-"UN/ALL"
-"WB/ALL"
-"WTO/ALL"
-"IMF/ALL"
+3) WORD CLOUD VISUALIZATION
+Using the content of UN statements, wordcloud.R file is used to visualize word cloud. 
